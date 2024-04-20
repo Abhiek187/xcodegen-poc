@@ -1,0 +1,10 @@
+# Rules: https://realm.github.io/SwiftLint/rule-directory.html
+opt_in_rules:
+  - force_unwrapping
+  - indentation_width
+
+force_unwrapping: error
+
+excluded:
+  - Pods
+  - vendor
