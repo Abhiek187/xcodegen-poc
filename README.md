@@ -12,7 +12,7 @@ Follow the [installation guide](https://github.com/yonaskolb/XcodeGen?tab=readme
 - Reduces merge conflicts
 - It's easier to reference external shell scripts (also can take advantage of IDE features)
 - Can specify multiple environments & frameworks for larger projects, with shared settings
-- Can specify how code should be formatted for consistency in a large team (in addition to tools like swiftlint)
+- Can enforce how code should be styled for consistency in a large team (in addition to tools like swiftlint)
 - Supports caching if project files haven't changed
 - Can utilize environment variables
 
