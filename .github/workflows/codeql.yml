@@ -71,7 +71,7 @@ jobs:
       - if: matrix.language == 'swift'
         run: |
           echo "Run, Build Application using script"
-          arch -x86_64 brew install xcodegen
+          /opt/homebrew/bin/brew install xcodegen
           xcodegen generate
           /Applications/Xcode_15.3.app/Contents/Developer/usr/bin/xcodebuild build -project Calculator-Xcodegen.xcodeproj -scheme Calculator-Xcodegen CODE_SIGNING_REQUIRED=NO CODE_SIGNING_ALLOWED=NO
 
