@@ -43,6 +43,10 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - if: matrix.language == 'swift'
+        name: Install xcodegen
+        run: brew install xcodegen
+
       # Initializes the CodeQL tools for scanning.
       - name: Initialize CodeQL
         uses: github/codeql-action/init@v3
@@ -71,7 +75,6 @@ jobs:
       - if: matrix.language == 'swift'
         run: |
           echo "Run, Build Application using script"
-          /opt/homebrew/bin/brew install xcodegen
           xcodegen generate
           /Applications/Xcode_15.3.app/Contents/Developer/usr/bin/xcodebuild build -project Calculator-Xcodegen.xcodeproj -scheme Calculator-Xcodegen CODE_SIGNING_REQUIRED=NO CODE_SIGNING_ALLOWED=NO
 
