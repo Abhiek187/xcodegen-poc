@@ -32,7 +32,6 @@ platform :ios do
               device: options[:device],
               clean: true,
               xcodebuild_formatter: "xcbeautify",
-              output_types: "html",
-              disable_package_automatic_updates: true)
+              output_types: "html")
   end
 end
