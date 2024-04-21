@@ -2,6 +2,17 @@
 name: Calculator-Xcodegen
 breakpoints:
   - type: Exception
+# Add files to the project navigator without adding them to a target
+fileGroups:
+  - .github
+  - fastlane
+  - .gitignore
+  - .swiftlint.yml
+  - Gemfile
+  - Gemfile.lock
+  - project.yml
+  - README.md
+  - swiftlint.sh
 options:
   bundleIdPrefix: com.example
   useTabs: false
