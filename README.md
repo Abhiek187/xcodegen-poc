@@ -1,6 +1,9 @@
 # xcodegen-poc
 
-Testing out Xcodegen using the code from [calculators](https://github.com/abhiek187/calculators)
+[![Fastlane](https://github.com/Abhiek187/xcodegen-poc/actions/workflows/fastlane.yml/badge.svg)](https://github.com/Abhiek187/xcodegen-poc/actions/workflows/fastlane.yml)
+[![CodeQL](https://github.com/Abhiek187/xcodegen-poc/actions/workflows/codeql.yml/badge.svg)](https://github.com/Abhiek187/xcodegen-poc/actions/workflows/codeql.yml)
+
+Testing out XcodeGen using the code from [calculators](https://github.com/abhiek187/calculators)
 
 ## Install
 
