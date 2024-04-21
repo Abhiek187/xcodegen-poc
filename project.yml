@@ -1,0 +1,61 @@
+# Schema: https://github.com/yonaskolb/XcodeGen/blob/master/Docs/ProjectSpec.md
+name: Calculator-Xcodegen
+breakpoints:
+  - type: Exception
+# Add files to the project navigator without adding them to a target
+fileGroups:
+  - .github
+  - fastlane
+  - .gitignore
+  - .swiftlint.yml
+  - Gemfile
+  - Gemfile.lock
+  - project.yml
+  - README.md
+  - swiftlint.sh
+options:
+  bundleIdPrefix: com.example
+  useTabs: false
+  indentWidth: 4
+# SPM libraries
+packages:
+  # To avoid checking in ProjectName.xcodeproj/project.xcworkspace/xcshareddata/swiftpm/Package.resolved, specify the exact version here
+  ViewInspector:
+    url: https://github.com/nalexn/ViewInspector
+    version: '0.9.10'
+settings:
+  base:
+    MARKETING_VERSION: 1.0.0 # version
+    CURRENT_PROJECT_VERSION: 1 # build
+    DEVELOPMENT_TEAM: UF6E5BVT98
+    # Apply recommended settings
+    ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS: true
+    ENABLE_USER_SCRIPT_SANDBOXING: false # can't open .swiftlint.yml in sandbox mode
+targets:
+  Calculator-Xcodegen:
+    type: application
+    platform: iOS
+    deploymentTarget: '16.0'
+    sources: Calculator-Xcodegen
+    postCompileScripts:
+      - path: swiftlint.sh
+        name: Swiftlint
+        basedOnDependencyAnalysis: false
+    settings:
+      INFOPLIST_KEY_LSApplicationCategoryType: public.app-category.utilities
+  Calculator-Xcodegen-Tests:
+    type: bundle.unit-test
+    platform: iOS
+    deploymentTarget: '16.0'
+    sources: Calculator-Xcodegen-Tests
+    dependencies:
+      - target: Calculator-Xcodegen
+      - package: ViewInspector
+  Calculator-Xcodegen-UI-Tests:
+    type: bundle.ui-testing
+    platform: iOS
+    deploymentTarget: '16.0'
+    sources: Calculator-Xcodegen-UI-Tests
+    dependencies:
+      - target: Calculator-Xcodegen
+  # Framework ideas: design system, helper methods, state management, APIs

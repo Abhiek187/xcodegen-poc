@@ -1,0 +1,37 @@
+# This file contains the fastlane.tools configuration
+# You can find the documentation at https://docs.fastlane.tools
+#
+# For a list of all available actions, check out
+#
+#     https://docs.fastlane.tools/actions
+#
+# For a list of all available plugins, check out
+#
+#     https://docs.fastlane.tools/plugins/available-plugins
+#
+
+# Uncomment the line if you want fastlane to automatically update itself
+# update_fastlane
+
+default_platform(:ios)
+
+platform :ios do
+  APP_SCHEME = "Calculator-Xcodegen"
+  
+  before_all do
+    # Only run in GitHub Actions
+    if ENV["CI"]
+      xcodes(version: "15.3", # required to support Package.resolved version 3
+             select_for_current_build_only: true)
+    end
+  end
+  
+  desc "Run tests on a specified device"
+  lane :test do |options|
+    run_tests(scheme: APP_SCHEME,
+              device: options[:device],
+              clean: true,
+              xcodebuild_formatter: "xcbeautify",
+              output_types: "junit")
+  end
+end
